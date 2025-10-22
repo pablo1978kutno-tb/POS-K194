@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POS Poseidon - Statystyki K194</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>POS Poseidon - Statystyki K194</h1>
+  </header>
+
+  <section id="player-table">
+    <h2>Gracze i punkty POS</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Gracz</th>
+          <th>Punkty POS</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="player-table-body"></tbody>
+    </table>
+  </section>
+
+  <section id="weekly-report">
+    <h2>Raport tygodniowy</h2>
+    <label>Zakres:
+      <select id="report-range">
+        <option value="7">Tydzień</option>
+        <option value="30">Miesiąc</option>
+        <option value="90">Kwartał</option>
+        <option value="365">Rok</option>
+      </select>
+    </label>
+    <button onclick="renderWeeklyReport()">Generuj raport</button>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Gracz</th>
+          <th>Punkty POS</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="weekly-report-table"></tbody>
+    </table>
+    <canvas id="weeklyReportChart"></canvas>
+  </section>
+
+  <section id="army-level-table">
+    <h2>Poziomy wojsk</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Gracz</th>
+          <th>G</th>
+          <th>S</th>
+          <th>M</th>
+          <th>E</th>
+        </tr>
+      </thead>
+      <tbody id="level-table"></tbody>
+    </table>
+  </section>
+
+  <section id="army-level-chart">
+    <h2>Wykres poziomów wojsk</h2>
+    <canvas id="armyLevelChart"></canvas>
+  </section>
+
+  <section id="admin-settings" style="display: none;">
+    <h2>⚙️ Ustawienia klanu</h2>
+    <div id="chest-values"></div>
+    <label>Próg tygodniowy POS: <input type="number" id="threshold-input" /></label>
+    <button onclick="saveClanSettings()">Zapisz zmiany</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
